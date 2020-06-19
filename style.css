@@ -1,0 +1,207 @@
+/* Importante deixar no começo do arquivo, resetando o css  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./img/fundo.jpg');
+    font-family: 'Roboto', sans-serif;
+    /* Metodo para deixar */
+    background-size: auto 100vh;
+    /* Alterando o tamanho do body */
+    height: 100vh;
+    font-size: 12px;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mudando a cor da navbar */
+.navbar {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    /* Ordem de prioridade */
+    z-index: 1;
+}
+
+.navbar a{
+    color: teal;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+a {
+    /* Apagar a linha de links */
+    text-decoration: none;
+    color: black;
+}
+
+/* Quando passa o mouse irá colocar essas configuraçoes */
+a:hover {
+    /* text-decoration: underline; */
+    color: rgb(0, 98, 128);
+}
+
+/* Modo de entrar em uma classe e alterar elementos somente dentro dela */
+.navbar li {
+    list-style: none;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.titulos {
+    transform: scale(0.2) translateY(50vh);
+    opacity: 0;
+
+    animation: linear 2s animacao forwards;
+}
+@keyframes animacao {
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Metodo para selecionar mais de um elemento */
+.titulo,
+.subtitulo {
+    /* Coloca o texto meio da tela */
+    text-align: center;
+    color: white;
+}
+
+.titulo {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 4em;
+}
+
+.subtitulo {
+    font-family: 'Source Code Pro', monospace;
+    font-style: italic;
+    line-height: 1.5em;
+}
+.img-portfolio {
+    width: 240px;
+    height: 180px;
+    object-fit: cover;
+    object-position: left bottom;
+    transition: transform 500ms;
+}
+
+.img-portfolio:hover {
+    transform: scale(1.03);
+}
+
+.sobre h2,
+.contato h2,
+.port h2 {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin-bottom: 1.5em;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 25px;
+}
+.sobre,
+.contato,
+.port {    
+    padding: 2em;
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sobre p {
+    color: white;
+    text-indent: 1.5em;
+    margin-bottom: 1.2em;
+    text-align: justify;
+}
+
+.sobre .avatar{
+    float: right;
+    margin-left: 2em;
+}
+
+/* melhor forma de mexer na imagem */
+.sobre .avatar img{
+    /* colocar um formato na imagem */
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+}
+
+.port .grid {
+    /* metodo para utilizar colunas */
+    display: grid;
+    /* serve para dar espaço como o margin */
+    gap: 2em;
+    
+}
+
+.port figure {
+    text-align: center;
+}
+
+.contato a {
+    color: white;
+    font-size: 4em;
+    transition: text-shadow 1s;
+}
+
+.contato a:hover {
+    text-decoration: none;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.contato .icons{
+    text-align: center;
+}
+
+/* Tag resposavel pela responsividade, aplica a partir do tamanho minimo de tela */
+@media (min-width: 400px) {
+    body {
+      font-size: 14px;
+    }
+}
+@media (min-width: 600px) {
+    body {
+      font-size: 18px;
+    }
+}
+
+/* Media para as imagens */
+@media (min-width: 560px){
+    .port .grid {
+        /* serve para o total de colunas e seus tamanhos */
+        grid-template-columns: 240px 240px; 
+    }
+}
+@media (min-width: 700px){
+    .port .grid {
+        /* serve para o total de colunas e seus tamanhos */
+        grid-template-columns: 240px 240px 240px; 
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 4em - 48px - 1.5em);
+    }
+}
+
+@media(min-width: 1200px){
+    .sobre,
+    .contato,
+    .port {
+        max-width: 1200px;
+    }
+}
